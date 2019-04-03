@@ -1,0 +1,24 @@
+{
+  "name": "node_slave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon main",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --single-quote --write ./*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.2",
+    "nodemon": "^1.18.10",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "prettier": "1.16.4"
+  }
+}
