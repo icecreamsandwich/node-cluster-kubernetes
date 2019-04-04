@@ -32,7 +32,7 @@ app.get('/', function(req, res) {
 //send a GET request to node slave and get response
 app.get('/api', function(req, res) {
   // res.send("API endpoint")
-  var host = process.env.NODE_SLAVE || 'http://localhost:5002';
+  var host = process.env.NODE_SLAVE || 'http://172.17.0.3:5002';
   var options = {
     method: 'GET',
     uri: host + '/api',
@@ -57,7 +57,7 @@ app.post('/api', function(req, res) {
   let postData = {
     movie_title: 'Transcendence'
   };
-  var host = process.env.NODE_SLAVE || 'http://localhost:5002';
+  var host = process.env.NODE_SLAVE || 'http://172.17.0.3:5002';
   var options = {
     method: 'POST',
     uri: host + '/api',
@@ -86,7 +86,7 @@ app.post('/db/save', function(req, res) {
     address: address
   };
   console.log(JSON.stringify(postData));
-  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
+  var host = process.env.NODE_SLAVE2 || 'http://172.17.0.4:5003';
   var options = {
     method: 'POST',
     body: JSON.stringify(postData),
@@ -108,7 +108,7 @@ app.post('/db/save', function(req, res) {
 
 //send a POST request to fetch data node slave2 app
 app.post('/db/fetch', function(req, res) {
-  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
+  var host = process.env.NODE_SLAVE2 || 'http://172.17.0.4:5003';
   var options = {
     method: 'POST',
     uri: host + '/db/fetch',
