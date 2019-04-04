@@ -21,14 +21,35 @@ app.get('/', function(req, res) {
   res.send('node slave2 app running ok');
 });
 
-//POST request to mongodb
+//POST to insert data to mongoDB
+app.post('/db/save', function(req, res) {
+  var myobj = req.body;
+  try {
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db('test');
+      // var myobj = { name: 'Company Inc', address: 'Highway 37' };
+      dbo.collection('customers').insertOne(myobj, function(err, resdb) {
+        if (err) throw err;
+        console.log('1 document inserted');
+        res.send('1 document inserted');
+        db.close();
+      });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+});
+
+//POST request to retrieve data from mongodb
 app.post('/db/fetch', function(req, res) {
   try {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db('users');
+      var dbo = db.db('test');
       dbo
-        .collection('users')
+        .collection('customers')
         .find({})
         .toArray(function(err, result) {
           if (err) throw err;

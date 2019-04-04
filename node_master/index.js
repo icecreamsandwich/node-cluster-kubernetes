@@ -8,10 +8,25 @@ const port = 5001;
 
 var app = express();
 
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(
+  bodyParser.urlencoded({
+    // to support URL-encoded bodies
+    extended: true
+  })
+);
+
 app.get('/', function(req, res) {
   var now = new Date();
-  res.send('Node master application' + now.toISOString() + ' on container port ' + port + ' with ip ' + ip.address())
- // res.send('Node master application');
+  res.send(
+    'Node master application' +
+      now.toISOString() +
+      ' on container port ' +
+      port +
+      ' with ip ' +
+      ip.address()
+  );
+  // res.send('Node master application');
 });
 
 //send a GET request to node slave and get response
@@ -31,8 +46,8 @@ app.get('/api', function(req, res) {
     } else {
       console.log('Response: Headers:', response && response.headers);
       console.log(body);
-      var ipObj = {'pod_ip': ip.address()}
-      res.send(body+ipObj);
+      var ipObj = { pod_ip: ip.address() };
+      res.send(body + ipObj);
     }
   });
 });
@@ -62,7 +77,36 @@ app.post('/api', function(req, res) {
   });
 });
 
-//send a POST request to node slave2 app
+//send a POST request to save data node slave2 app
+app.post('/db/save', function(req, res) {
+  var name = req.body.name;
+  var address = req.body.address;
+  var postData = {
+    name: name,
+    address: address
+  };
+  console.log(JSON.stringify(postData));
+  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
+  var options = {
+    method: 'POST',
+    body: JSON.stringify(postData),
+    uri: host + '/db/save',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  request(options, function(error, response, body) {
+    if (error) {
+      console.error('error:', error);
+    } else {
+      console.log('Response: Headers:', response && response.headers);
+      console.log(body);
+      res.send(body);
+    }
+  });
+});
+
+//send a POST request to fetch data node slave2 app
 app.post('/db/fetch', function(req, res) {
   var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
   var options = {
