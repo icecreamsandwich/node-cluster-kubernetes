@@ -87,10 +87,12 @@ app.post('/db/save', function(req, res) {
   var pincode = req.body.pincode;
   var mark = req.body.mark;
   var position = req.body.position;
+  var tags_mod = tags ? tags.split(",") : "";
+
   var postData = {
     name: name,
     address: address,
-    tags: [tags],
+    tags: tags_mod,
     address_detaills : {
       address2:address2,
       map_location:map_location,
