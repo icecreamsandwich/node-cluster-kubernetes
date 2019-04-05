@@ -81,9 +81,25 @@ app.post('/api', function(req, res) {
 app.post('/db/save', function(req, res) {
   var name = req.body.name;
   var address = req.body.address;
+  var tags = req.body.tags;
+  var address2 = req.body.address2;
+  var map_location = req.body.map_location;
+  var pincode = req.body.pincode;
+  var mark = req.body.mark;
+  var position = req.body.position;
   var postData = {
     name: name,
-    address: address
+    address: address,
+    tags: [tags],
+    address_detaills : {
+      address2:address2,
+      map_location:map_location,
+      pincode:pincode,
+    },
+    rank_detaills : {
+      mark:mark,
+      position:position,
+    },
   };
   console.log(JSON.stringify(postData));
   var host = process.env.NODE_SLAVE2 || 'http://slave2:5003';

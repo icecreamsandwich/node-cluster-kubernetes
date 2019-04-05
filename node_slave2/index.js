@@ -28,7 +28,6 @@ app.post('/db/save', function(req, res) {
     MongoClient.connect(url,{useNewUrlParser: true}, function(err, db) {
       if (err) throw err;
       var dbo = db.db('test');
-      // var myobj = { name: 'Company Inc', address: 'Highway 37' };
       dbo.collection('customers').insertOne(myobj, function(err, resdb) {
         if (err) throw err;
         console.log('1 document inserted');
