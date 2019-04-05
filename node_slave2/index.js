@@ -4,7 +4,7 @@ var request = require('request');
 var bodyParser = require('body-parser');
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://mongo:27017';
+var url = 'mongodb://192.168.1.200:27017'; // Replace this ip with one of the nodes in docker swarm
 
 var port = 5003;
 var app = express();
