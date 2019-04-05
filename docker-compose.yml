@@ -1,0 +1,44 @@
+version: "3"
+services:
+  master:
+    image: mukhtardock/node_master_kuber:latest
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "5001:5001"
+    networks:
+      - webnet
+    slave1:
+    image: mukhtardock/nodes_slave_kuber:latest
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "5002:5002"
+    networks:
+      - webnet
+  slave2:
+    image: mukhtardock/node_slave2_kuber:latest
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "5003:5003"
+    networks:
+      - webnet
+  mongo:
+    image: mongo
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "27017:27017"
+    networks:
+      - webnet
+networks:
+  webnet:
