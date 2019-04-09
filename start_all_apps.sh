@@ -1,4 +1,6 @@
 #!/bin/bash
+#kill all node processes
+killall -9 /usr/bin/node
 
 #cd to the node_master and run the app
 cd node_master;	nohup node index.js >> app.log 2>&1 &

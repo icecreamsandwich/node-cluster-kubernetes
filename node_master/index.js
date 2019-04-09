@@ -18,6 +18,14 @@ app.use(
 
 app.get('/', function(req, res) {
   var now = new Date();
+  console.log(
+    'Node master application' +
+      now.toISOString() +
+      ' on container port ' +
+      port +
+      ' with ip ' +
+      ip.address()
+  );
   res.send(
     'Node master application' +
       now.toISOString() +
@@ -32,7 +40,7 @@ app.get('/', function(req, res) {
 //send a GET request to node slave and get response
 app.get('/api', function(req, res) {
   // res.send("API endpoint")
-  var host = process.env.NODE_SLAVE || 'http://slave1:5002';
+  var host = process.env.NODE_SLAVE || 'http://localhost:5002';
   var options = {
     method: 'GET',
     uri: host + '/api',
@@ -57,7 +65,7 @@ app.post('/api', function(req, res) {
   let postData = {
     movie_title: 'Transcendence'
   };
-  var host = process.env.NODE_SLAVE || 'http://slave1:5002';
+  var host = process.env.NODE_SLAVE || 'http://localhost:5002';
   var options = {
     method: 'POST',
     uri: host + '/api',
@@ -87,24 +95,24 @@ app.post('/db/save', function(req, res) {
   var pincode = req.body.pincode;
   var mark = req.body.mark;
   var position = req.body.position;
-  var tags_mod = tags ? tags.split(",") : "";
+  var tags_mod = tags ? tags.split(',') : '';
 
   var postData = {
     name: name,
     address: address,
     tags: tags_mod,
-    address_detaills : {
-      address2:address2,
-      map_location:map_location,
-      pincode:pincode,
+    address_detaills: {
+      address2: address2,
+      map_location: map_location,
+      pincode: pincode
     },
-    rank_detaills : {
-      mark:mark,
-      position:position,
-    },
+    rank_detaills: {
+      mark: mark,
+      position: position
+    }
   };
-  console.log(JSON.stringify(postData));
-  var host = process.env.NODE_SLAVE2 || 'http://slave2:5003';
+  // console.log(JSON.stringify(postData));
+  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
   var options = {
     method: 'POST',
     body: JSON.stringify(postData),
@@ -118,7 +126,7 @@ app.post('/db/save', function(req, res) {
       console.error('error:', error);
     } else {
       console.log('Response: Headers:', response && response.headers);
-      console.log(body);
+      //  console.log(body);
       res.send(body);
     }
   });
@@ -126,7 +134,7 @@ app.post('/db/save', function(req, res) {
 
 //send a POST request to fetch data node slave2 app
 app.post('/db/fetch', function(req, res) {
-  var host = process.env.NODE_SLAVE2 || 'http://slave2:5003';
+  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
   var options = {
     method: 'POST',
     uri: host + '/db/fetch',
@@ -139,7 +147,79 @@ app.post('/db/fetch', function(req, res) {
       console.error('error:', error);
     } else {
       console.log('Response: Headers:', response && response.headers);
-      console.log(body);
+      // console.log(body);
+      res.send(body);
+    }
+  });
+});
+
+//POST to update a document
+app.post('/db/update', function(req, res) {
+  var name = req.body.name;
+  var address = req.body.address;
+  var tags = req.body.tags;
+  var address2 = req.body.address2;
+  var map_location = req.body.map_location;
+  var pincode = req.body.pincode;
+  var mark = req.body.mark;
+  var position = req.body.position;
+  var tags_mod = tags ? tags.split(',') : '';
+
+  var postData = {
+    name: name,
+    address: address,
+    tags: tags_mod,
+    address_detaills: {
+      address2: address2,
+      map_location: map_location,
+      pincode: pincode
+    },
+    rank_detaills: {
+      mark: mark,
+      position: position
+    },
+    _id: req.body._id
+  };
+  //console.log(JSON.stringify(postData));
+  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
+  var options = {
+    method: 'POST',
+    body: JSON.stringify(postData),
+    uri: host + '/db/update',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  request(options, function(error, response, body) {
+    if (error) {
+      console.error('error:', error);
+    } else {
+      //    console.log('Response: Headers:', response && response.headers);
+      //    console.log(body);
+      res.send(body);
+    }
+  });
+});
+
+//POST request to delete a document
+app.post('/db/delete', function(req, res) {
+  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
+  var postData = {
+    _id: req.body._id
+  };
+  var options = {
+    method: 'POST',
+    body: JSON.stringify(postData),
+    uri: host + '/db/delete',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  request(options, function(error, response, body) {
+    if (error) {
+      console.error('error:', error);
+    } else {
+      //  console.log('Response: Headers:', response && response.headers);
       res.send(body);
     }
   });
