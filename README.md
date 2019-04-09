@@ -24,3 +24,23 @@ eg : `curl -d '{"_id":"5cacbb591b13a424d235e521", "name":"kaitlin"}' -H "Content
 ### POST http://<server_url>:5001/db/delete 
 
 eg: `curl -d '{"_id":"5cacbb591b13a424d235e521"}' -H "Content-Type: application/json" -X POST http://<server_url>:5001/db/delete`
+
+### adding PM2 for monitoring
+
+`npm install -g pm2` //install pm2 globally
+
+``pm2 start node_master/index.js``
+
+``pm2 start node_slave/index.js``
+
+``pm2 start node_slave2/index.js``
+
+`pm2 monit` //monitoring in CMD
+
+`pm2 logs` // get the app logs
+
+#### dashboard
+
+`pm2 link bflqdwwaqlf45u2 oqaff6b6af7ardr localhost` // will get the token once the dashboard is connected with github repo
+
+and visit https://app.pm2.io/
