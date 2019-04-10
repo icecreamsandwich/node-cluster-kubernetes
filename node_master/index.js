@@ -96,6 +96,7 @@ app.post('/db/save', function(req, res) {
   var mark = req.body.mark;
   var position = req.body.position;
   var tags_mod = tags ? tags.split(',') : '';
+  var car_id = req.body.car_id;
 
   var postData = {
     name: name,
@@ -109,7 +110,8 @@ app.post('/db/save', function(req, res) {
     rank_detaills: {
       mark: mark,
       position: position
-    }
+    },
+    car_id: car_id
   };
   // console.log(JSON.stringify(postData));
   var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';

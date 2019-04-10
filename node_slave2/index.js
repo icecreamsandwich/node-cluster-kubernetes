@@ -130,13 +130,13 @@ app.post('/db/aggregate', function(req, res) {
               car_make: 'Volkswagen',
             }},
         ) */
-         //find a perfect match && a condition
+          //find a perfect match && a condition
           /*  .find({
             car_make: 'Volkswagen',
             id : {$gt:10}
           }) */
-           //find records with and condition
-         /*  .find({
+          //find records with and condition
+          /*  .find({
              $and : [
               {id: {$lt: 70}},
               {id: {$gt: 50}} ,              
@@ -146,20 +146,19 @@ app.post('/db/aggregate', function(req, res) {
           //find records with IN condition
            //   id : {$in : [62,65]}
           })  */
-          .aggregate(
-            [
-              {
-                $lookup:{
-                  from : 'customers',
-                  localField: 'product_id',
-                  foreignField: '_id',
-                  as: 'userdetails'
-                }
+          //aggregate with join with another table
+          .aggregate([
+            {
+              $lookup: {
+                from: 'customers',
+                localField: 'id',
+                foreignField: 'car_id',
+                as: 'customerdetails'
               }
-            ]
-          )
+            }
+          ])
           /* .find({
-          //  car_model_year : {$all :[2008]}
+            price : {$lt :300}
           })
           .sort({ id: 1 })
           .limit(50) */
