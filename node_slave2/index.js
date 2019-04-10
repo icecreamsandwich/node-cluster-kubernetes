@@ -130,13 +130,13 @@ app.post('/db/aggregate', function(req, res) {
               car_make: 'Volkswagen',
             }},
         ) */
-         //find a perfect match && a condition
+          //find a perfect match && a condition
           /*  .find({
             car_make: 'Volkswagen',
             id : {$gt:10}
           }) */
-           //find records with and condition
-         /*  .find({
+          //find records with and condition
+          /*  .find({
              $and : [
               {id: {$lt: 70}},
               {id: {$gt: 50}} ,              
@@ -147,7 +147,7 @@ app.post('/db/aggregate', function(req, res) {
            //   id : {$in : [62,65]}
           })  */
           .find({
-            car_model_year : {$all :[2008]}
+            car_model_year: { $all: [2008] }
           })
           .sort({ id: -1 })
           .toArray(function(err, resdb) {
