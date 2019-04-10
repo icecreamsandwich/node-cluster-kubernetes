@@ -25,7 +25,7 @@ eg : `curl -d '{"_id":"5cacbb591b13a424d235e521", "name":"kaitlin"}' -H "Content
 
 eg: `curl -d '{"_id":"5cacbb591b13a424d235e521"}' -H "Content-Type: application/json" -X POST http://<server_url>:5001/db/delete`
 
-### adding PM2 for monitoring
+### PM2 for monitoring
 
 `npm install -g pm2` //install pm2 globally
 
