@@ -115,6 +115,54 @@ app.post('/db/delete', function(req, res) {
   }
 });
 
+//TODO practicing aggregation in mongodb
+app.post('/db/aggregate', function(req, res) {
+  try {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+      if (err) throw err;
+      else {
+        var dbo = db.db('test');
+        dbo
+          .collection('cars')
+          //find a perfect match
+          /*  .aggregate(
+            {$match : {
+              car_make: 'Volkswagen',
+            }},
+        ) */
+         //find a perfect match && a condition
+          /*  .find({
+            car_make: 'Volkswagen',
+            id : {$gt:10}
+          }) */
+           //find records with and condition
+         /*  .find({
+             $and : [
+              {id: {$lt: 70}},
+              {id: {$gt: 50}} ,              
+            ], 
+            //find records with or condition
+          //  $or: [{ id: 90 }, { id: 80 }]
+          //find records with IN condition
+           //   id : {$in : [62,65]}
+          })  */
+          .find({
+            car_model_year : {$all :[2008]}
+          })
+          .sort({ id: -1 })
+          .toArray(function(err, resdb) {
+            if (err) console.log(err);
+            console.log(resdb);
+            res.send(JSON.stringify(resdb));
+            db.close();
+          });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(port, () => {
   console.log(`node slave2 app is listening on port ${port}`);
 });

@@ -225,6 +225,25 @@ app.post('/db/delete', function(req, res) {
   });
 });
 
+//TODO practicing aggregation in mongodb
+app.post('/db/aggregate', function(req, res) {
+  var host = process.env.NODE_SLAVE2 || 'http://localhost:5003';
+  var options = {
+    method: 'POST',
+    uri: host + '/db/aggregate',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  request(options, function(err, response, body) {
+    if (err) console.error('error :' + err);
+    else {
+      console.log(body);
+      res.send(body);
+    }
+  });
+});
+
 app.listen(port, function() {
   console.log(`node master app listening on port ${port}!`);
 });
