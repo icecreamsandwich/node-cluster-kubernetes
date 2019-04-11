@@ -25,7 +25,7 @@ eg : `curl -d '{"_id":"5cacbb591b13a424d235e521", "name":"kaitlin"}' -H "Content
 
 eg: `curl -d '{"_id":"5cacbb591b13a424d235e521"}' -H "Content-Type: application/json" -X POST http://<server_url>:5001/db/delete`
 
-### PM2 for monitoring
+## PM2 for monitoring
 
 `npm install -g pm2` //install pm2 globally
 
@@ -44,3 +44,9 @@ eg: `curl -d '{"_id":"5cacbb591b13a424d235e521"}' -H "Content-Type: application/
 `pm2 link bflqdwwaqlf45u2 oqaff6b6af7ardr localhost` // will get the token once the dashboard is connected with github repo
 
 and visit https://app.pm2.io/
+
+### import the db
+
+`cd C:\Program Files\MongoDB\Server\4.0\bin\`
+
+`mongorestore <project_folder>\db\db.json`
