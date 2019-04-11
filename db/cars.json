@@ -1,0 +1,100 @@
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ad"},"id":1.0,"car_make":"GMC","car_model":"Savana 3500","car_model_year":2006.0,"car_vin":"2C3CA6CT6BH333437","car_price":55.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ae"},"id":2.0,"car_make":"Jeep","car_model":"Commander","car_model_year":2006.0,"car_vin":"5UXKR6C57E0533543","car_price":60.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8af"},"id":3.0,"car_make":"Infiniti","car_model":"G","car_model_year":2007.0,"car_vin":"WAUHF78PX9A115365","car_price":65.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b0"},"id":4.0,"car_make":"Buick","car_model":"Roadmaster","car_model_year":1995.0,"car_vin":"WAUVC68E52A976284","car_price":70.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b1"},"id":5.0,"car_make":"Chevrolet","car_model":"Uplander","car_model_year":2005.0,"car_vin":"WUALNAFG5EN515856","car_price":75.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b2"},"id":6.0,"car_make":"Mitsubishi","car_model":"Mirage","car_model_year":1990.0,"car_vin":"WBSBL93446P966041","car_price":80.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b3"},"id":7.0,"car_make":"Ford","car_model":"Edge","car_model_year":2007.0,"car_vin":"1GYS4LKJ2FR129084","car_price":85.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b4"},"id":8.0,"car_make":"Lexus","car_model":"LS Hybrid","car_model_year":2012.0,"car_vin":"JN1AJ0HP6AM832264","car_price":90.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b5"},"id":9.0,"car_make":"Oldsmobile","car_model":"Silhouette","car_model_year":2002.0,"car_vin":"WBANA53525B183790","car_price":95.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b6"},"id":10.0,"car_make":"Subaru","car_model":"Leone","car_model_year":1987.0,"car_vin":"JTMHY7AJ0D4398904","car_price":100.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b7"},"id":11.0,"car_make":"Mitsubishi","car_model":"Montero","car_model_year":2000.0,"car_vin":"WBAFR9C5XCD044612","car_price":105.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b8"},"id":12.0,"car_make":"Dodge","car_model":"Caravan","car_model_year":2006.0,"car_vin":"JTDBT4K39C1678324","car_price":110.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8b9"},"id":13.0,"car_make":"Ford","car_model":"Mustang","car_model_year":2001.0,"car_vin":"5TFCY5F1XDX805178","car_price":115.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ba"},"id":14.0,"car_make":"Land Rover","car_model":"Discovery","car_model_year":1997.0,"car_vin":"JTDZN3EU6FJ262775","car_price":120.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8bb"},"id":15.0,"car_make":"Ford","car_model":"Probe","car_model_year":1990.0,"car_vin":"WAUHFAFL3EN390396","car_price":125.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8bc"},"id":16.0,"car_make":"Ford","car_model":"F250","car_model_year":1993.0,"car_vin":"WA1AM94L09D990651","car_price":130.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8bd"},"id":17.0,"car_make":"Volkswagen","car_model":"GTI","car_model_year":1989.0,"car_vin":"KNDPB3A24B7079144","car_price":135.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8be"},"id":18.0,"car_make":"Audi","car_model":"4000","car_model_year":1987.0,"car_vin":"SALSF2D49CA908373","car_price":140.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8bf"},"id":19.0,"car_make":"Honda","car_model":"S2000","car_model_year":2009.0,"car_vin":"JN1CV6EK3AM424250","car_price":145.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c0"},"id":20.0,"car_make":"Land Rover","car_model":"Discovery","car_model_year":2003.0,"car_vin":"1FTMF1C83AK169424","car_price":150.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c1"},"id":21.0,"car_make":"Volkswagen","car_model":"rio","car_model_year":1996.0,"car_vin":"WBAGH83471D677915","car_price":155.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c2"},"id":22.0,"car_make":"Kia","car_model":"Spectra","car_model_year":2009.0,"car_vin":"WAUXL58E05A234043","car_price":160.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c3"},"id":23.0,"car_make":"Mercedes-Benz","car_model":"SLK-Class","car_model_year":2007.0,"car_vin":"WBAGN63493D756762","car_price":165.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c4"},"id":24.0,"car_make":"Toyota","car_model":"Tundra","car_model_year":2006.0,"car_vin":"JTEBU4BF6BK087153","car_price":170.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c5"},"id":25.0,"car_make":"Lincoln","car_model":"Town Car","car_model_year":2000.0,"car_vin":"JTDKN3DU2A0997951","car_price":175.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c6"},"id":26.0,"car_make":"Ford","car_model":"Econoline E350","car_model_year":2002.0,"car_vin":"2G4GK5EX9E9529709","car_price":180.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c7"},"id":27.0,"car_make":"Toyota","car_model":"Avalon","car_model_year":2006.0,"car_vin":"1G6DM8E39D0348413","car_price":185.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c8"},"id":28.0,"car_make":"Nissan","car_model":"Armada","car_model_year":2011.0,"car_vin":"2D4RN3DG2BR790351","car_price":190.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8c9"},"id":29.0,"car_make":"Nissan","car_model":"Rogue","car_model_year":2011.0,"car_vin":"JH4DC538X2C968582","car_price":195.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ca"},"id":30.0,"car_make":"Mitsubishi","car_model":"Montero","car_model_year":1998.0,"car_vin":"W04GT5GC0B1029329","car_price":200.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8cb"},"id":31.0,"car_make":"Oldsmobile","car_model":"Silhouette","car_model_year":2001.0,"car_vin":"5FRYD3H22GB779233","car_price":205.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8cc"},"id":32.0,"car_make":"Infiniti","car_model":"J","car_model_year":1997.0,"car_vin":"4USBU33576L260368","car_price":210.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8cd"},"id":33.0,"car_make":"Mitsubishi","car_model":"Precis","car_model_year":1993.0,"car_vin":"WAUWFAFH9DN816030","car_price":215.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ce"},"id":34.0,"car_make":"Saturn","car_model":"Aura","car_model_year":2008.0,"car_vin":"3N1CN7AP2EK636859","car_price":220.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8cf"},"id":35.0,"car_make":"Mercedes-Benz","car_model":"R-Class","car_model_year":2006.0,"car_vin":"JHMZF1C6XES220185","car_price":225.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d0"},"id":36.0,"car_make":"Infiniti","car_model":"G","car_model_year":1995.0,"car_vin":"WBAVA33517P340607","car_price":230.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d1"},"id":37.0,"car_make":"GMC","car_model":"Savana","car_model_year":2010.0,"car_vin":"JN1AJ0HP9BM269910","car_price":235.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d2"},"id":38.0,"car_make":"Ford","car_model":"F350","car_model_year":1999.0,"car_vin":"3D73M4CL3AG043779","car_price":240.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d3"},"id":39.0,"car_make":"Rolls-Royce","car_model":"Phantom","car_model_year":2005.0,"car_vin":"19UUA8F5XDA623272","car_price":245.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d4"},"id":40.0,"car_make":"Chrysler","car_model":"Concorde","car_model_year":1998.0,"car_vin":"WAU32AFD6FN189348","car_price":250.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d5"},"id":41.0,"car_make":"Land Rover","car_model":"Defender 110","car_model_year":1993.0,"car_vin":"4T1BF1FK9DU515370","car_price":255.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d6"},"id":42.0,"car_make":"Mitsubishi","car_model":"Endeavor","car_model_year":2009.0,"car_vin":"1FTSW2A55AE505711","car_price":260.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d7"},"id":43.0,"car_make":"Chevrolet","car_model":"S10","car_model_year":1993.0,"car_vin":"5FNYF3H32FB903133","car_price":265.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d8"},"id":44.0,"car_make":"Mercedes-Benz","car_model":"SL-Class","car_model_year":1993.0,"car_vin":"WVWAP7AN5EE012495","car_price":270.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8d9"},"id":45.0,"car_make":"Mercury","car_model":"Topaz","car_model_year":1991.0,"car_vin":"1G6AY5S35E0962421","car_price":275.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8da"},"id":46.0,"car_make":"Chevrolet","car_model":"Aveo","car_model_year":2009.0,"car_vin":"1D7RW2BK3BS556798","car_price":280.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8db"},"id":47.0,"car_make":"Ford","car_model":"Escort","car_model_year":2002.0,"car_vin":"WAUHGAFC9DN900231","car_price":285.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8dc"},"id":48.0,"car_make":"Audi","car_model":"A5","car_model_year":2012.0,"car_vin":"1G6DV57VX80983320","car_price":290.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8dd"},"id":49.0,"car_make":"Chevrolet","car_model":"Avalanche 1500","car_model_year":2002.0,"car_vin":"5N1AN0NU0AC064603","car_price":295.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8de"},"id":50.0,"car_make":"Mazda","car_model":"B-Series Plus","car_model_year":1992.0,"car_vin":"WA1BY94L57D479684","car_price":300.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8df"},"id":51.0,"car_make":"Mercedes-Benz","car_model":"E-Class","car_model_year":2004.0,"car_vin":"WAUBF78E86A250389","car_price":305.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e0"},"id":52.0,"car_make":"Saab","car_model":"9000","car_model_year":1992.0,"car_vin":"WAULF78K69N978218","car_price":310.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e1"},"id":53.0,"car_make":"Maybach","car_model":"Landaulet","car_model_year":2010.0,"car_vin":"JN1AZ4FH7FM023407","car_price":315.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e2"},"id":54.0,"car_make":"Mitsubishi","car_model":"Expo","car_model_year":1992.0,"car_vin":"JTHKD5BH1C2322571","car_price":320.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e3"},"id":55.0,"car_make":"Dodge","car_model":"Daytona","car_model_year":1992.0,"car_vin":"WAUVT68E35A708869","car_price":325.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e4"},"id":56.0,"car_make":"BMW","car_model":"Z8","car_model_year":2003.0,"car_vin":"WAUBVAFB3BN452682","car_price":330.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e5"},"id":57.0,"car_make":"Jaguar","car_model":"XK","car_model_year":2012.0,"car_vin":"JH4NA12663T362927","car_price":335.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e6"},"id":58.0,"car_make":"Maserati","car_model":"Gran Sport","car_model_year":2005.0,"car_vin":"SAJWA0F79F8329142","car_price":340.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e7"},"id":59.0,"car_make":"Volvo","car_model":"850","car_model_year":1997.0,"car_vin":"2C4RDGDG8FR866295","car_price":345.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e8"},"id":60.0,"car_make":"Lincoln","car_model":"Navigator","car_model_year":2004.0,"car_vin":"3D7JB1EK5BG139933","car_price":350.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8e9"},"id":61.0,"car_make":"BMW","car_model":"645","car_model_year":2005.0,"car_vin":"1G6DG8E55C0446944","car_price":355.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ea"},"id":62.0,"car_make":"Lincoln","car_model":"Continental","car_model_year":1985.0,"car_vin":"1C3CDFDH1ED791602","car_price":360.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8eb"},"id":63.0,"car_make":"Ford","car_model":"Bronco","car_model_year":1989.0,"car_vin":"SCFAD02A46G635805","car_price":365.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ec"},"id":64.0,"car_make":"Nissan","car_model":"350Z","car_model_year":2004.0,"car_vin":"WVWAW7AH5BV903783","car_price":370.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ed"},"id":65.0,"car_make":"Lexus","car_model":"LS","car_model_year":1994.0,"car_vin":"5GAKRBED7CJ574858","car_price":375.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ee"},"id":66.0,"car_make":"Nissan","car_model":"370Z","car_model_year":2009.0,"car_vin":"JN8AZ2KR8AT575940","car_price":380.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ef"},"id":67.0,"car_make":"Mazda","car_model":"Millenia","car_model_year":1997.0,"car_vin":"1N6AA0EC6EN895019","car_price":385.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f0"},"id":68.0,"car_make":"Ford","car_model":"F350","car_model_year":2000.0,"car_vin":"5GAKVBEDXBJ205387","car_price":390.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f1"},"id":69.0,"car_make":"Jaguar","car_model":"S-Type","car_model_year":2000.0,"car_vin":"WA1CGCFE6BD294278","car_price":395.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f2"},"id":70.0,"car_make":"Saturn","car_model":"VUE","car_model_year":2003.0,"car_vin":"1G6AB5RX1E0754594","car_price":400.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f3"},"id":71.0,"car_make":"BMW","car_model":"3 Series","car_model_year":2004.0,"car_vin":"YV126MFB4F2841673","car_price":405.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f4"},"id":72.0,"car_make":"Mitsubishi","car_model":"Truck","car_model_year":1990.0,"car_vin":"WP0AB2A95FS667179","car_price":410.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f5"},"id":73.0,"car_make":"Kia","car_model":"Rondo","car_model_year":2007.0,"car_vin":"3VW4S7AT9EM571436","car_price":415.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f6"},"id":74.0,"car_make":"Volkswagen","car_model":"GTI","car_model_year":1999.0,"car_vin":"WBAEP334X5P919744","car_price":420.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f7"},"id":75.0,"car_make":"Mercury","car_model":"Grand Marquis","car_model_year":2008.0,"car_vin":"WVGFF9BP0BD428150","car_price":425.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f8"},"id":76.0,"car_make":"Honda","car_model":"Accord","car_model_year":1999.0,"car_vin":"3MZBM1U77EM215645","car_price":430.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8f9"},"id":77.0,"car_make":"Ford","car_model":"Aerostar","car_model_year":1989.0,"car_vin":"1GD12XEG2FF094333","car_price":435.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8fa"},"id":78.0,"car_make":"Dodge","car_model":"Ram 3500","car_model_year":1996.0,"car_vin":"1C4SDJET5CC567975","car_price":440.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8fb"},"id":79.0,"car_make":"Toyota","car_model":"MR2","car_model_year":2002.0,"car_vin":"1GYS3RKJ5FR688859","car_price":445.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8fc"},"id":80.0,"car_make":"Chevrolet","car_model":"Corvette","car_model_year":1992.0,"car_vin":"SAJWA4GB9EL311049","car_price":450.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8fd"},"id":81.0,"car_make":"Dodge","car_model":"Ram Van 2500","car_model_year":2002.0,"car_vin":"1GKS1KE04CR039446","car_price":455.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8fe"},"id":82.0,"car_make":"Toyota","car_model":"Avalon","car_model_year":2003.0,"car_vin":"WBA3T7C53FP893959","car_price":460.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b8ff"},"id":83.0,"car_make":"Dodge","car_model":"Ram 1500 Club","car_model_year":1997.0,"car_vin":"WBA3X5C50ED366874","car_price":465.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b900"},"id":84.0,"car_make":"Lincoln","car_model":"Aviator","car_model_year":2003.0,"car_vin":"WAUSH94F37N117196","car_price":470.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b901"},"id":85.0,"car_make":"Chevrolet","car_model":"Corvette","car_model_year":1978.0,"car_vin":"WAULFAFH2EN615638","car_price":475.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b902"},"id":86.0,"car_make":"Eagle","car_model":"Vision","car_model_year":1993.0,"car_vin":"WDDHH8HBXBA065165","car_price":480.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b903"},"id":87.0,"car_make":"Ford","car_model":"Mustang","car_model_year":1967.0,"car_vin":"WBANW53539C478852","car_price":485.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b904"},"id":88.0,"car_make":"Lexus","car_model":"SC","car_model_year":2009.0,"car_vin":"1N4AL2AP2CN056960","car_price":490.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b905"},"id":89.0,"car_make":"Porsche","car_model":"944","car_model_year":1987.0,"car_vin":"3VW1K7AJ3BM244723","car_price":495.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b906"},"id":90.0,"car_make":"Chevrolet","car_model":"Impala","car_model_year":1996.0,"car_vin":"1G4HP57M19U919303","car_price":500.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b907"},"id":91.0,"car_make":"Jaguar","car_model":"XJ Series","car_model_year":2002.0,"car_vin":"1FTEW1E84AK112960","car_price":505.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b908"},"id":92.0,"car_make":"Toyota","car_model":"RAV4","car_model_year":2009.0,"car_vin":"1YVHZ8BH8C5305757","car_price":510.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b909"},"id":93.0,"car_make":"Hyundai","car_model":"Santa Fe","car_model_year":2009.0,"car_vin":"3D73Y3CL8BG814379","car_price":515.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b90a"},"id":94.0,"car_make":"Porsche","car_model":"911","car_model_year":2013.0,"car_vin":"2T1BURHEXFC589865","car_price":520.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b90b"},"id":95.0,"car_make":"Porsche","car_model":"Carrera GT","car_model_year":2005.0,"car_vin":"SCFEDCAD9BG015430","car_price":525.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b90c"},"id":96.0,"car_make":"Saab","car_model":"900","car_model_year":1998.0,"car_vin":"WBAEH73484B322902","car_price":530.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b90d"},"id":97.0,"car_make":"Saturn","car_model":"Ion","car_model_year":2003.0,"car_vin":"1FBNE3BL8DD349102","car_price":535.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b90e"},"id":98.0,"car_make":"Chevrolet","car_model":"Cavalier","car_model_year":1994.0,"car_vin":"WAUJT54B52N574522","car_price":540.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b90f"},"id":99.0,"car_make":"Mercedes-Benz","car_model":"C-Class","car_model_year":2005.0,"car_vin":"WBAKF3C55CJ455454","car_price":545.0}
+{"_id":{"$oid":"5caee7178f79ba251fe3b910"},"id":100.0,"car_make":"Eagle","car_model":"Talon","car_model_year":1998.0,"car_vin":"WAUAF78E18A359856","car_price":550.0}

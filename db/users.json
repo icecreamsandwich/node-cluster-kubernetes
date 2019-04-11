@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5c097d033cb8f8234080a9f2"},"username":"admin","password":"$2b$12$zJi7PBVrhRXcTJ5SdCOa3e1Jcsa/nUKk5h9x2xNxpYs9TMZxWyL62","name":"Muneeb","age":234,"nationality":"India","__v":0}
+{"_id":{"$oid":"5c0a0553e755d319c8c88e3f"},"username":"mango","password":"$2b$12$sZeNXPwKKZsN0s/ets.idOzwkZArmdZTO1fW9A3vPC1glgfGPktX.","name":"man","age":345,"nationality":"India","__v":0}
+{"_id":{"$oid":"5c0a154ab0f9b2157829b062"},"username":"sudeep","password":"$2b$12$hmoSpODuT.gXdaJFz3NSweDybsFAblsUN/VbP8Jf4Ph5QF6dAJ8fu","name":"sudepp","age":34,"nationality":"India","__v":0}
+{"_id":{"$oid":"5c0add7880380420b05afdb1"},"username":"me","password":"$2b$12$vpU9S9rwOpl9Fv38fD6VduyadO3kg65so7V8DOhW9DyaaU45t79GO","name":"meeee","age":3545,"nationality":"India","__v":0}
+{"_id":{"$oid":"5c0ade0cfe070b23149c6c18"},"username":"mathew","password":"$2b$12$twyKe5lSYcR/u5bvlPDH8.RuNgqiw9k9JVKbM9NMpWkVZotqB7NEq","name":"mat","age":34534,"nationality":"India","__v":0}
+{"_id":{"$oid":"5c25b0fa7611e203ccc536aa"},"username":"muneeb","password":"$2b$12$aALXOHGxz8G9RgamP.82OewuBgCOpdYcUyU1oE397OFauFCsJWVeG","name":"Muneeb","age":345345,"nationality":"America","__v":0}
+{"_id":{"$oid":"5c25b1907611e203ccc536ab"},"username":"master","password":"$2b$12$OYKQPmQCN1DEY/VNfMnqYe4PdSCWKwA.oyKhRpSJKT6BYvDXsIqES","name":"master","age":44564,"nationality":"America","__v":0}
+{"_id":{"$oid":"5c25b2089a484136a0099a3c"},"username":"mats","password":"$2b$12$8poheK0Vlus4PPMxw1231uP8NQbYv0Xl6B9QeLZrlfP00Jh4l4KMa","name":"mat","age":3453,"nationality":"England","__v":0}
+{"_id":{"$oid":"5c25b25e9a484136a0099a3d"},"username":"bomb","password":"$2b$12$sc6gmIFP6m8TX.eovuqSX.C9Amtu.uziIdzJ3X56MLjAMFLDKXy4O","name":"bomb","age":35345,"nationality":"England","__v":0}
+{"_id":{"$oid":"5c27134cec23aa1cc8571883"},"username":"minmin","password":"$2b$12$B2tQQMMuvP.kBX0194qG2OmvGqJwJ7P28qhLd0cGp.O65gs0iCb/.","name":"min","age":43534,"nationality":"Australia","__v":0}

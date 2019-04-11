@@ -124,44 +124,45 @@ app.post('/db/aggregate', function(req, res) {
         var dbo = db.db('test');
         dbo
           .collection('cars')
-          //find a perfect match
-          /*  .aggregate(
-            {$match : {
-              car_make: 'Volkswagen',
-            }},
-        ) */
-          //find a perfect match && a condition
-          /*  .find({
-            car_make: 'Volkswagen',
-            id : {$gt:10}
+          /* .find({
+            //car_make : 'Saab'
+           // car_make :{$regex : '^Sat'}
+           //car_make :{ $regex : 'he$'}
           }) */
-          //find records with and condition
-          /*  .find({
-             $and : [
-              {id: {$lt: 70}},
-              {id: {$gt: 50}} ,              
-            ], 
-            //find records with or condition
-          //  $or: [{ id: 90 }, { id: 80 }]
-          //find records with IN condition
-           //   id : {$in : [62,65]}
-          })  */
-          //aggregate with join with another table
-          .aggregate([
+          /* .aggregate([
             {
-              $lookup: {
-                from: 'customers',
-                localField: 'id',
-                foreignField: 'car_id',
-                as: 'customerdetails'
+              $project: {
+                id: 1,
+                car_make: 1,
+                car_model: 1,
+                car_price: 1
               }
             }
-          ])
+          ]) */
           /* .find({
-            price : {$lt :300}
-          })
-          .sort({ id: 1 })
-          .limit(50) */
+            car_make : {$regex: 'he$'},
+            
+          }) */
+          /* .aggregate([
+            {
+              $project :{
+                id:1, car_make :1 ,car_model :1 
+              },           
+            },
+           // {$count : 'car_make_total_count'}
+          ]) */
+          .aggregate([
+            {
+              $match: {
+                car_make: { $regex: 'he$' }
+              }
+            },
+            /* {
+              $count: "cars name ending with 'he' count"
+            } */
+          ])
+          .sort({ id: -1 })
+          .limit(10)
           .toArray(function(err, resdb) {
             if (err) console.log(err);
             console.log(resdb);
@@ -178,3 +179,41 @@ app.post('/db/aggregate', function(req, res) {
 app.listen(port, () => {
   console.log(`node slave2 app is listening on port ${port}`);
 });
+
+// All operations
+//find a perfect match
+/*  .aggregate(
+            {$match : {
+              car_make: 'Volkswagen',
+            }},
+        ) */
+//find a perfect match && a condition
+/*  .find({
+            car_make: 'Volkswagen',
+            id : {$gt:10}
+          }) */
+//find records with and condition
+/*  .find({
+             $and : [
+              {id: {$lt: 70}},
+              {id: {$gt: 50}} ,              
+            ], 
+            //find records with or condition
+          //  $or: [{ id: 90 }, { id: 80 }]
+          //find records with IN condition
+           //   id : {$in : [62,65]}
+          })  */
+//aggregate with join with another table
+/* .aggregate([
+            {
+              $lookup: {
+                from: 'customers',
+                localField: 'id',
+                foreignField: 'car_id',
+                as: 'customerdetails'
+              }
+            }
+          ]) */
+/* .find({
+            price : {$lt :300}
+          })*/
