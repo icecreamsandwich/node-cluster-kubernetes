@@ -164,6 +164,11 @@ app.post('/db/aggregate', function(req, res) {
           .find({})
           //aggregate group by
           /* .aggregate([
+           { 
+            $match:{
+              car_make : {$regex: '^Volks'}
+            }
+          },
             {
               $group:{
                 _id :{ car_make : "$car_make"},
