@@ -50,7 +50,9 @@ app.post('/db/fetch', function(req, res) {
       var dbo = db.db('test');
       dbo
         .collection('customers')
-        .find({})
+        .find({
+          id :{ $gte : 10}
+        })
         .toArray(function(err, result) {
           if (err) throw err;
           console.log(result);
@@ -124,58 +126,7 @@ app.post('/db/aggregate', function(req, res) {
         var dbo = db.db('test');
         dbo
           .collection('cars')
-          /* .find({
-            //car_make : 'Saab'
-           // car_make :{$regex : '^Sat'}
-           //car_make :{ $regex : 'he$'}
-          }) */
-          /* .aggregate([
-            {
-              $project: {
-                id: 1,
-                car_make: 1,
-                car_model: 1,
-                car_price: 1
-              }
-            }
-          ]) */
-          /* .find({
-            car_make : {$regex: 'he$'},
-            
-          }) */
-          /* .aggregate([
-            {
-              $project :{
-                id:1, car_make :1 ,car_model :1 
-              },           
-            },
-           // {$count : 'car_make_total_count'}
-          ]) */
-          /* .aggregate([
-            {
-              $match: {
-                car_make: { $regex: 'he$' }
-              }
-            },
-             {
-              $count: "cars name ending with 'he' count"
-            } 
-          ]) */
           .find({})
-          //aggregate group by
-          /* .aggregate([
-           { 
-            $match:{
-              car_make : {$regex: '^Volks'}
-            }
-          },
-            {
-              $group:{
-                _id :{ car_make : "$car_make"},
-                  count :{$sum : 1}
-              }
-            }
-          ]) */
           .sort({ id: -1 })
           .limit(50)
           .toArray(function(err, resdb) {
@@ -232,3 +183,57 @@ app.listen(port, () => {
 /* .find({
             price : {$lt :300}
           })*/
+
+          //More aggregations
+          /* .find({
+            //car_make : 'Saab'
+           // car_make :{$regex : '^Sat'}
+           //car_make :{ $regex : 'he$'}
+          }) */
+          /* .aggregate([
+            {
+              $project: {
+                id: 1,
+                car_make: 1,
+                car_model: 1,
+                car_price: 1
+              }
+            }
+          ]) */
+          /* .find({
+            car_make : {$regex: 'he$'},
+            
+          }) */
+          /* .aggregate([
+            {
+              $project :{
+                id:1, car_make :1 ,car_model :1 
+              },           
+            },
+           // {$count : 'car_make_total_count'}
+          ]) */
+          /* .aggregate([
+            {
+              $match: {
+                car_make: { $regex: 'he$' }
+              }
+            },
+             {
+              $count: "cars name ending with 'he' count"
+            } 
+          ]) */
+
+          //aggregate group by
+          /* .aggregate([
+           { 
+            $match:{
+              car_make : {$regex: '^Volks'}
+            }
+          },
+            {
+              $group:{
+                _id :{ car_make : "$car_make"},
+                  count :{$sum : 1}
+              }
+            }
+          ]) */

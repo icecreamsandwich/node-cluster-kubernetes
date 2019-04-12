@@ -3,6 +3,7 @@ var ip = require('ip');
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
+var path = require('path');
 var config = require('dotenv').config();
 const port = 5001;
 
@@ -17,15 +18,7 @@ app.use(
 );
 
 app.get('/', function(req, res) {
-  var now = new Date();
-  console.log(
-    'Node master application' +
-      now.toISOString() +
-      ' on container port ' +
-      port +
-      ' with ip ' +
-      ip.address()
-  );
+  /* var now = new Date();
   res.send(
     'Node master application' +
       now.toISOString() +
@@ -33,8 +26,18 @@ app.get('/', function(req, res) {
       port +
       ' with ip ' +
       ip.address()
-  );
-  // res.send('Node master application');
+  ); */
+   res.sendFile(path.join(__dirname+'/views/index.html'));
+});
+
+app.post('/home', function(req, res) {
+   var now = new Date();
+   res.send('Node master application' +
+   now.toISOString() +
+   ' on container port ' +
+   port +
+   ' with ip ' +
+   ip.address());
 });
 
 //send a GET request to node slave and get response
