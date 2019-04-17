@@ -5,6 +5,15 @@ To start all the apps at once run `. start_all_apps.sh`
 # prettify all code
 To prettify all the code run the script `. prettify_all.sh`
 
+# Dockerize all apps
+cd to each app (<b>`node_master, node_slave, node_slave2`</b>) directory and run 
+
+`docker build -t <tagname> .`
+
+`docker run -p 5001:5001 -d <tagname>` for node_master.(Give 5002 for node_slave and 5003 for node_slave2)
+
+run `docker inspect bridge` and replace the ip given in the code on connecting from master to slave nodes.
+
 # API endpoints
 #### 1) save data to the db
 ### POST http://<server_url>:5001/db/save 
