@@ -61,3 +61,7 @@ and visit https://app.pm2.io/
 `cd C:\Program Files\MongoDB\Server\4.0\bin\`
 
 `mongorestore <project_folder>\db\db.json`
+
+### export the db
+ 
+ `mongodump --host <server_url> --db <db_name> --out <project_folder>\db`
