@@ -1,6 +1,8 @@
 #!/bin/bash
 #kill all node processes
 killall -9 /usr/bin/node
+#killall docker processes
+killall -9 /usr/bin/docker-proxy
 
 #cd to the node_master and run the app
 cd node_master;	nohup node index.js >> app.log 2>&1 &

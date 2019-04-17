@@ -4,7 +4,9 @@ var request = require('request');
 var bodyParser = require('body-parser');
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017'; // Replace this ip with one of the nodes in docker swarm
+// Replace this ip with one of the nodes in docker swarm
+
+var url = 'mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017;mongodb://192.168.1.107:37017/admin?replicaSet=rs0'; 
 var ObjectID = require('mongodb').ObjectID;
 
 var port = 5003;
@@ -26,7 +28,7 @@ app.get('/', function(req, res) {
 app.post('/db/save', function(req, res) {
   var myobj = req.body;
   try {
-    MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
       if (err) throw err;
       var dbo = db.db('test');
       dbo.collection('customers').insertOne(myobj, function(err, resdb) {
@@ -50,9 +52,7 @@ app.post('/db/fetch', function(req, res) {
       var dbo = db.db('test');
       dbo
         .collection('customers')
-        .find({
-          id :{ $gte : 10}
-        })
+        .find({})
         .toArray(function(err, result) {
           if (err) throw err;
           console.log(result);
@@ -126,8 +126,10 @@ app.post('/db/aggregate', function(req, res) {
         var dbo = db.db('test');
         dbo
           .collection('cars')
-          .find({})
+          .find({})         
           .sort({ id: -1 })
+          //limit 50 offset 70
+          .skip(70)
           .limit(50)
           .toArray(function(err, resdb) {
             if (err) console.log(err);
@@ -147,6 +149,31 @@ app.listen(port, () => {
 });
 
 // All operations
+
+/* .aggregate([
+            {
+              $project : { car_vin :1}
+            }
+          ]) */
+          /* .aggregate([
+           { 
+            $match:{
+              car_make : {$regex: '^Volks'}
+            }
+          },
+          {
+            $project :{ _id : 1, car_make : 1, car_model : 1 }
+          },
+            {
+              $group:{
+                 _id :{ car_make : "$car_make"},
+                 car_models :{$push : "$car_model"}
+              }
+            },
+             {
+              $count: "cars starting with 'Volks'"
+            } 
+          ]) */
 //find a perfect match
 /*  .aggregate(
             {$match : {
@@ -184,13 +211,13 @@ app.listen(port, () => {
             price : {$lt :300}
           })*/
 
-          //More aggregations
-          /* .find({
+//More aggregations
+/* .find({
             //car_make : 'Saab'
            // car_make :{$regex : '^Sat'}
            //car_make :{ $regex : 'he$'}
           }) */
-          /* .aggregate([
+/* .aggregate([
             {
               $project: {
                 id: 1,
@@ -200,11 +227,11 @@ app.listen(port, () => {
               }
             }
           ]) */
-          /* .find({
+/* .find({
             car_make : {$regex: 'he$'},
             
           }) */
-          /* .aggregate([
+/* .aggregate([
             {
               $project :{
                 id:1, car_make :1 ,car_model :1 
@@ -212,7 +239,7 @@ app.listen(port, () => {
             },
            // {$count : 'car_make_total_count'}
           ]) */
-          /* .aggregate([
+/* .aggregate([
             {
               $match: {
                 car_make: { $regex: 'he$' }
@@ -223,8 +250,8 @@ app.listen(port, () => {
             } 
           ]) */
 
-          //aggregate group by
-          /* .aggregate([
+//aggregate group by
+/* .aggregate([
            { 
             $match:{
               car_make : {$regex: '^Volks'}

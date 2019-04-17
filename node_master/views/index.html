@@ -63,7 +63,7 @@ li a:hover:not(.active) {
 </html>
 
 <script type="text/javascript">
- $(document).ready(function(){    
+ $(document).ready(function(){
     //post request to master when clicks on home or onload
     $.post('/home',function(data, status){
         $('.result').html(data);

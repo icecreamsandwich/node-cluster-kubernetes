@@ -27,17 +27,19 @@ app.get('/', function(req, res) {
       ' with ip ' +
       ip.address()
   ); */
-   res.sendFile(path.join(__dirname+'/views/index.html'));
+  res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
 app.post('/home', function(req, res) {
-   var now = new Date();
-   res.send('Node master application' +
-   now.toISOString() +
-   ' on container port ' +
-   port +
-   ' with ip ' +
-   ip.address());
+  var now = new Date();
+  res.send(
+    'Node master application' +
+      now.toISOString() +
+      ' on container port ' +
+      port +
+      ' with ip ' +
+      ip.address()
+  );
 });
 
 //send a GET request to node slave and get response
