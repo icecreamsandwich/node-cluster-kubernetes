@@ -12,7 +12,9 @@ cd to each app (<b>`node_master, node_slave, node_slave2`</b>) directory and run
 
 `docker run -p 5001:5001 -d <tagname>` for node_master.(Give 5002 for node_slave and 5003 for node_slave2)
 
-run `docker inspect bridge` and replace the ip given in the code on connecting from master to slave nodes.
+run `docker inspect bridge` and replace the <server_url> given in the host part of the `node_master/index.js` of each endpoints.
+
+ (eg: `var host = 'http://<server_url>:5003';`) or in the `.env` file.
 
 # API endpoints
 #### 1) save data to the db
@@ -59,3 +61,7 @@ and visit https://app.pm2.io/
 `cd C:\Program Files\MongoDB\Server\4.0\bin\`
 
 `mongorestore <project_folder>\db\db.json`
+
+### export the db
+ 
+ `mongodump --host <server_url> --db <db_name> --out <project_folder>\db`
