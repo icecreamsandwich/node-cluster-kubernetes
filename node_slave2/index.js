@@ -7,7 +7,7 @@ var MongoClient = require('mongodb').MongoClient;
 // Replace this ip with one of the nodes in docker swarm
 
 var url =
-  'mongodb://192.168.1.107:37017;mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017/admin?replicaSet=rs0';
+  'mongodb://192.168.1.107:37017;mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017;mongodb://192.168.1.107:57017/admin?replicaSet=rs0';
 var ObjectID = require('mongodb').ObjectID;
 
 var port = 5003;
