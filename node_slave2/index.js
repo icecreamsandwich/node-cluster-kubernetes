@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 // Replace this ip with one of the nodes in docker swarm
 
-var url = 'mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017;mongodb://192.168.1.107:37017/admin?replicaSet=rs0'; 
+var url =
+  'mongodb://192.168.1.107:37017;mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017/admin?replicaSet=rs0';
 var ObjectID = require('mongodb').ObjectID;
 
 var port = 5003;
@@ -28,7 +29,7 @@ app.get('/', function(req, res) {
 app.post('/db/save', function(req, res) {
   var myobj = req.body;
   try {
-    MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
       if (err) throw err;
       var dbo = db.db('test');
       dbo.collection('customers').insertOne(myobj, function(err, resdb) {
@@ -126,7 +127,7 @@ app.post('/db/aggregate', function(req, res) {
         var dbo = db.db('test');
         dbo
           .collection('cars')
-          .find({})         
+          .find({})
           .sort({ id: -1 })
           //limit 50 offset 70
           .skip(70)
@@ -155,7 +156,7 @@ app.listen(port, () => {
               $project : { car_vin :1}
             }
           ]) */
-          /* .aggregate([
+/* .aggregate([
            { 
             $match:{
               car_make : {$regex: '^Volks'}
