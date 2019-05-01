@@ -5,6 +5,9 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var path = require('path');
 var config = require('dotenv').config();
+var socket = require('socket.io');
+var Twit = require('twit');
+
 const port = 5001;
 
 var app = express();
@@ -249,6 +252,21 @@ app.post('/db/aggregate', function(req, res) {
       res.send(body);
     }
   });
+});
+
+//TODO call socket connection to get twitter stream
+app.post('/socket_twitter', function(req, res){
+   var T = new Twit({
+      consumer_key: 'SV7QoHPW0dtfjw6TCI885yf31',
+      consumer_secret : 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
+      access_token : '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
+      access_token_secret : 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
+   })
+   var stream = T.stream('statuses/filter', {track : 'javascript'});
+    stream.on('tweet',function(data){
+      console.log(data);
+      res.send(data);
+    });
 });
 
 app.listen(port, function() {

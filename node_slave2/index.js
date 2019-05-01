@@ -127,54 +127,11 @@ app.post('/db/aggregate', function(req, res) {
         var dbo = db.db('test');
         dbo
           .collection('cars')
-<<<<<<< HEAD
-          /* .find({
-            //car_make : 'Saab'
-           // car_make :{$regex : '^Sat'}
-           //car_make :{ $regex : 'he$'}
-          }) */
-          /* .aggregate([
-            {
-              $project: {
-                id: 1,
-                car_make: 1,
-                car_model: 1,
-                car_price: 1
-              }
-            }
-          ]) */
-          /* .find({
-            car_make : {$regex: 'he$'},
-            
-          }) */
-          /* .aggregate([
-            {
-              $project :{
-                id:1, car_make :1 ,car_model :1 
-              },           
-            },
-           // {$count : 'car_make_total_count'}
-          ]) */
-          /* .aggregate([
-            {
-              $match: {
-                car_make: { $regex: 'he$' }
-              }
-            },
-             {
-              $count: "cars name ending with 'he' count"
-            } 
-          ]) */
-          .find({})
-          .sort({ id: -1 })
-          .limit(30)
-=======
           .find({})
           .sort({ id: -1 })
           //limit 50 offset 70
           .skip(70)
           .limit(50)
->>>>>>> 554dc85d0a46dbac3a5583cc12deea38ac790ba6
           .toArray(function(err, resdb) {
             if (err) console.log(err);
             console.log(resdb);
