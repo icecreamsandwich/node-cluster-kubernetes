@@ -4,7 +4,10 @@ var request = require('request');
 var bodyParser = require('body-parser');
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017'; // Replace this ip with one of the nodes in docker swarm
+// Replace this ip with one of the nodes in docker swarm
+
+var url =
+  'mongodb://192.168.1.107:37017;mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017;mongodb://192.168.1.107:57017/admin?replicaSet=rs0';
 var ObjectID = require('mongodb').ObjectID;
 
 var port = 5003;
@@ -124,6 +127,7 @@ app.post('/db/aggregate', function(req, res) {
         var dbo = db.db('test');
         dbo
           .collection('cars')
+<<<<<<< HEAD
           /* .find({
             //car_make : 'Saab'
            // car_make :{$regex : '^Sat'}
@@ -164,6 +168,13 @@ app.post('/db/aggregate', function(req, res) {
           .find({})
           .sort({ id: -1 })
           .limit(30)
+=======
+          .find({})
+          .sort({ id: -1 })
+          //limit 50 offset 70
+          .skip(70)
+          .limit(50)
+>>>>>>> 554dc85d0a46dbac3a5583cc12deea38ac790ba6
           .toArray(function(err, resdb) {
             if (err) console.log(err);
             console.log(resdb);
@@ -182,6 +193,31 @@ app.listen(port, () => {
 });
 
 // All operations
+
+/* .aggregate([
+            {
+              $project : { car_vin :1}
+            }
+          ]) */
+/* .aggregate([
+           { 
+            $match:{
+              car_make : {$regex: '^Volks'}
+            }
+          },
+          {
+            $project :{ _id : 1, car_make : 1, car_model : 1 }
+          },
+            {
+              $group:{
+                 _id :{ car_make : "$car_make"},
+                 car_models :{$push : "$car_model"}
+              }
+            },
+             {
+              $count: "cars starting with 'Volks'"
+            } 
+          ]) */
 //find a perfect match
 /*  .aggregate(
             {$match : {
@@ -218,3 +254,57 @@ app.listen(port, () => {
 /* .find({
             price : {$lt :300}
           })*/
+
+//More aggregations
+/* .find({
+            //car_make : 'Saab'
+           // car_make :{$regex : '^Sat'}
+           //car_make :{ $regex : 'he$'}
+          }) */
+/* .aggregate([
+            {
+              $project: {
+                id: 1,
+                car_make: 1,
+                car_model: 1,
+                car_price: 1
+              }
+            }
+          ]) */
+/* .find({
+            car_make : {$regex: 'he$'},
+            
+          }) */
+/* .aggregate([
+            {
+              $project :{
+                id:1, car_make :1 ,car_model :1 
+              },           
+            },
+           // {$count : 'car_make_total_count'}
+          ]) */
+/* .aggregate([
+            {
+              $match: {
+                car_make: { $regex: 'he$' }
+              }
+            },
+             {
+              $count: "cars name ending with 'he' count"
+            } 
+          ]) */
+
+//aggregate group by
+/* .aggregate([
+           { 
+            $match:{
+              car_make : {$regex: '^Volks'}
+            }
+          },
+            {
+              $group:{
+                _id :{ car_make : "$car_make"},
+                  count :{$sum : 1}
+              }
+            }
+          ]) */

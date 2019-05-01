@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="https://jaystack.com/wp-content/uploads/2015/12/nodejs-logo-e1497443346889.png" type="image/gif"/>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.result{
+    display: block;
+    background-color: #a0c88c;
+    width: 1125px;
+    height: auto;
+    margin: 100px 50px 50px 50px;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a id="home" class="active" href="#home">Master</a></li>
+  <li><a id="aSlave" href="#slave">Slave1 Call</a></li>
+  <li><a id="aSlave2" href="#slave2">Slave2 Call</a></li>
+  <!-- <li style="float:right"><a href="#about">About</a></li> -->
+</ul>
+
+<div class="result"></div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    //post request to master when clicks on home or onload
+    $.post('/home',function(data, status){
+        $('.result').html(data);
+    })
+     //home link click action
+     $('#home').click(function(){
+        $.post('/home',function(data, status){
+            $('.result').html(data);
+        })
+     });
+
+     //slave1 link click action
+     $('#aSlave').click(function(){
+        $.post('/api',function(data, status){
+            $('.result').html(data);
+        })
+     });
+
+     //slave2 link click action
+     $('#aSlave2').click(function(){
+        $.post('/db/aggregate',function(data, status){
+            $('.result').html(data);
+        })
+     });
+ });
+</script>
