@@ -45,8 +45,12 @@ eg: `curl -d '{"_id":"5cacbb591b13a424d235e521"}' -H "Content-Type: application/
 
 and visit https://app.pm2.io/
 
-### import the db
+## import the db
 
 `cd C:\Program Files\MongoDB\Server\4.0\bin\`
 
 `mongorestore <project_folder>\db\db.json`
+
+        OR individual documents as
+
+`mongoimport --db <dbname> --collection <collection_name> <project_folder>\db\<collection.json>`

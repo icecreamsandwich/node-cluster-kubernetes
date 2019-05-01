@@ -151,18 +151,19 @@ app.post('/db/aggregate', function(req, res) {
             },
            // {$count : 'car_make_total_count'}
           ]) */
-          .aggregate([
+          /* .aggregate([
             {
               $match: {
                 car_make: { $regex: 'he$' }
               }
             },
-            /* {
+             {
               $count: "cars name ending with 'he' count"
-            } */
-          ])
+            } 
+          ]) */
+          .find({})
           .sort({ id: -1 })
-          .limit(10)
+          .limit(30)
           .toArray(function(err, resdb) {
             if (err) console.log(err);
             console.log(resdb);
