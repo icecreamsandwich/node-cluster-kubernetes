@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twitter feed on a topic</title>
+    <style>
+        #result {
+            display: block;
+            background-color: #a0c88c;
+            width: 1125px;
+            height: auto;
+            margin: 100px 50px 50px 50px;
+            padding: 20px 20px 20px 20px;
+            border-radius: 5px;
+        }
+        .tweet{
+            display: block;
+            height: 40px;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center"> Twitter streaming</h2>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script>
+        var socket = io.connect('http://192.168.1.107:5050');
+        socket.on('stream', function (tweet) {
+            $('#result').append('<div class="tweet">'+tweet+'</div>')
+        })
+    </script>
+    <div id="result"></div>
+</body>
+
+</html>
