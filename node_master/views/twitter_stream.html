@@ -63,7 +63,8 @@
         $("#tweets").html("loading twitter feed ...")
     </script>
     <script>
-      var socket = io.connect("http://192.168.1.107:5050");
+      var url = 'http://localhost:5050' || 'http://192.168.1.107:5050'
+      var socket = io.connect(url);
       socket.on("stream", function(tweet) {
         $("#tweets").append('<div class="tweet">' + tweet + "</div>");
       });

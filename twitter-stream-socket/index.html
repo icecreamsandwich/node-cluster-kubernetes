@@ -29,7 +29,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
     <script>
-        var socket = io.connect('http://192.168.1.107:5050');
+        var url = 'http://192.168.1.107:5050' || 'http://localhost:5050';
+        var socket = io.connect('http://localhost:5050');
         socket.on('stream', function (tweet) {
             $('#result').append('<div class="tweet">'+tweet+'</div>')
         })
