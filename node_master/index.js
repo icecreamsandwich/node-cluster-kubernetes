@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var path = require('path');
 var config = require('dotenv').config();
-var socket = require('socket.io');
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 var Twit = require('twit');
 
 const port = 5001;
@@ -256,18 +257,53 @@ app.post('/db/aggregate', function(req, res) {
 
 //TODO call socket connection to get twitter stream
 app.post('/socket_twitter', function(req, res){
-   var T = new Twit({
-      consumer_key: 'SV7QoHPW0dtfjw6TCI885yf31',
-      consumer_secret : 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
-      access_token : '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
-      access_token_secret : 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
-   })
-   var stream = T.stream('statuses/filter', {track : 'javascript'});
-    stream.on('tweet',function(data){
-      console.log(data);
-      res.send(data);
-    });
+  var T = new Twit({
+    consumer_key: 'SV7QoHPW0dtfjw6TCI885yf31',
+    consumer_secret : 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
+    access_token : '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
+    access_token_secret : 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
+ })
+
+ try {
+  var trackList = [ 'javascript', 'php', 'mongo', 'python', '#coding', '#code' ]
+  var stream = T.stream('statuses/filter', {track : trackList});
+  stream.on('tweet',function(data){
+    console.log(data.text); 
+    res.send(data.text + + data.user.screen_name)
+     /*  sockets.emit('tweet',data.user.profile_image_url + "," 
+    + data.created_at + "," + data.id + "," + data.text 
+    + ", @" + data.user.screen_name); */    
+    
+  });
+ } catch (error) {
+   console.log(error)
+ }
+   
 });
+
+//socket io
+/* io.on('tweet', function(socket){
+  var T = new Twit({
+    consumer_key: 'SV7QoHPW0dtfjw6TCI885yf31',
+    consumer_secret : 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
+    access_token : '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
+    access_token_secret : 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
+ })
+
+ try {
+  var trackList = [ 'javasscript', 'php', 'mongo', 'python' ]
+  var stream = T.stream('statuses/filter', {track : trackList});
+  stream.on('tweet',function(data){
+    console.log(data.text); 
+       sockets.emit('tweet',data.user.profile_image_url + "," 
+    + data.created_at + "," + data.id + "," + data.text 
+    + ", @" + data.user.screen_name); 
+    socket.emit('tweet',{message:"hi"})  
+  });
+ } catch (error) {
+   console.log(error)
+ }
+}) */
 
 app.listen(port, function() {
   console.log(`node master app listening on port ${port}!`);

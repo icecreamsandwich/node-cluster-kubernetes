@@ -62,6 +62,7 @@ li a:hover:not(.active) {
 </body>
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script type="text/javascript">
  $(document).ready(function(){
     //post request to master when clicks on home or onload
@@ -91,10 +92,22 @@ li a:hover:not(.active) {
 
      //socket link click action
      $('#aSocket').click(function(){
-       alert("socket link cliked")
+       setInterval(function(){
         $.post('/socket_twitter',function(data, status){
-            $('.result').html(data);
+            $('.result').append(data);
         })
+        
+       },2000);
+        
      });
+  /* $('#aSocket').click(function(){
+    var socket = io();
+      var tweetArray = [];
+      var index = 0;
+      socket.on('connect',function(data){
+         console.log('connected');
+      })
+  }); */
+  
  });
 </script>
