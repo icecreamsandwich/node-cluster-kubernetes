@@ -34,6 +34,11 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
+//twitter stream page call
+app.get('/socket_call', function(req, res) {
+  res.sendFile(path.join(__dirname + '/views/twitter_stream.html'));
+});
+
 app.post('/home', function(req, res) {
   var now = new Date();
   res.send(
@@ -249,7 +254,7 @@ app.post('/db/aggregate', function(req, res) {
   request(options, function(err, response, body) {
     if (err) console.error('error :' + err);
     else {
-      console.log(body);
+      //  console.log(body);
       res.send(body);
     }
   });

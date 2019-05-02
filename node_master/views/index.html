@@ -40,11 +40,23 @@ li a:hover:not(.active) {
 .result{
     display: block;
     background-color: #a0c88c;
-    width: 1125px;
+    width: 900px;
     height: auto;
+    float: left;
     margin: 100px 50px 50px 50px;
     padding: 20px 20px 20px 20px;
     border-radius: 5px;
+}
+.tweet_block{
+  display: block;
+  background-color: #bbb;
+  height: 200px;
+  float: left;
+  margin: 100px 50px 50px 50px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 5px;
+  width: 200px;
+  height:auto;
 }
 </style>
 </head>
@@ -54,11 +66,11 @@ li a:hover:not(.active) {
   <li><a id="home" class="active" href="#home">Master</a></li>
   <li><a id="aSlave" href="#slave">Slave1 Call</a></li>
   <li><a id="aSlave2" href="#slave2">Slave2 Call</a></li>
-  <li><a id="aSocket" href="#socket">Socket Call</a></li>
+  <li><a id="aSocket" href="/socket_call">Socket Call</a></li>
 </ul>
 
 <div class="result"></div>
-
+<div class="tweet_block"></div>
 </body>
 </html>
 
@@ -90,24 +102,13 @@ li a:hover:not(.active) {
         })
      });
 
-     //socket link click action
-     $('#aSocket').click(function(){
-       setInterval(function(){
-        $.post('/socket_twitter',function(data, status){
-            $('.result').append(data);
-        })
-        
-       },2000);
-        
-     });
-  /* $('#aSocket').click(function(){
-    var socket = io();
-      var tweetArray = [];
-      var index = 0;
-      socket.on('connect',function(data){
-         console.log('connected');
-      })
-  }); */
-  
  });
+</script>
+<script src="http://192.168.1.107:5050/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://192.168.1.107:5050');
+  socket.on('stream', function(tweet){
+      $('.tweet_block').append(tweet);
+      $('.tweet_block').append('\n ===================== \n');
+  });
 </script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" size="16x16" href="https://img.etimg.com/thumb/msid-66456243,width-643,imgsize-70881,resizemode-4/twittersized.jpg" type="image/gif"/>
+    <title>Twitter feed on a topic</title>
+    <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #4caf50;
+      }
+      #tweets {
+        display: block;
+        background-color: #a0c88c;
+        width: 1125px;
+        height: auto;
+        margin: 100px 50px 50px 50px;
+        padding: 20px 20px 20px 20px;
+        border-radius: 5px;
+      }
+      .tweet {
+        display: block;
+        height: 40px;
+        width: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="http://192.168.1.107:5050/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script>
+        $("#tweets").html("loading twitter feed ...")
+    </script>
+    <script>
+      var socket = io.connect("http://192.168.1.107:5050");
+      socket.on("stream", function(tweet) {
+        $("#tweets").append('<div class="tweet">' + tweet + "</div>");
+      });
+    </script>
+    <ul>
+      <li><a id="home" class="active" href="http://192.168.1.107:5001/">Master</a></li>
+      <li>
+        <a id="aSlave" href="http://192.168.1.107:5001/#slave">Slave1 Call</a>
+      </li>
+      <li>
+        <a id="aSlave2" href="http://192.168.1.107:5001/#slave2">Slave2 Call</a>
+      </li>
+      <li><a id="aSocket" href="/socket_call">Socket Call</a></li>
+    </ul>
+    <div id="tweets"></div>
+  </body>
+</html>
