@@ -39,6 +39,11 @@ app.get('/socket_call', function(req, res) {
   res.sendFile(path.join(__dirname + '/views/twitter_stream.html'));
 });
 
+//Bootstrap page
+app.get('/bootstrap', function(req, res) {
+  res.sendFile(path.join(__dirname + '/views/bootstrap.html'));
+});
+
 app.post('/home', function(req, res) {
   var now = new Date();
   res.send(

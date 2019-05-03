@@ -18,7 +18,7 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html')
 })
 
-var watchList = ['coding', '#coding'];
+var watchList = ['coding', '#coding','php', 'python', 'node', 'javascript'];
 //var watchList = ['php', 'python', 'node', 'javascript', 'coding', '#coding'];
 
 var T = new Twit({

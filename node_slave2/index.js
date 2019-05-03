@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var MongoClient = require('mongodb').MongoClient;
 //In localhost
-var url = 'mongodb://localhost:27017';
+var url = 'mongodb://192.168.1.107:47017';
 // Replace this ip with one of the nodes in docker swarm
 /* var url =
   'mongodb://192.168.1.107:37017;mongodb://192.168.1.107:27017;mongodb://192.168.1.107:47017;mongodb://192.168.1.107:57017/admin?replicaSet=rs0'; */

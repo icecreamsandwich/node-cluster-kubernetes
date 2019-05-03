@@ -47,16 +47,28 @@ li a:hover:not(.active) {
     padding: 20px 20px 20px 20px;
     border-radius: 5px;
 }
-.tweet_block{
+.tweet_container{
   display: block;
   background-color: #bbb;
   height: 400px;
  /*  float: left; */
   margin: 100px 50px 50px 50px;
-  padding: 20px 20px 20px 20px;
+  /* padding: 20px 20px 20px 20px; */
   border-radius: 5px;
-  width: 200px;
+  width: 265px;
   overflow: scroll;
+}
+.tweet_header{
+  display: block;
+  background-color:sandybrown;
+  border-bottom: 2px solid saddlebrown;
+  width: 100%;
+  padding : 20px 0px 10px 0px;
+  text-align: center;
+  font-family: cursive;
+}
+.tweet_block{
+  padding: 20px 20px 20px 20px;
 }
 </style>
 </head>
@@ -70,7 +82,15 @@ li a:hover:not(.active) {
 </ul>
 
 <div class="result"></div>
-<div class="tweet_block"></div>
+<div class="tweet_container">
+  <div class="tweet_header">
+     Twitter Feed
+  </div>
+  <div class="tweet_block">
+
+  </div>
+</div>
+
 </body>
 </html>
 
@@ -104,12 +124,12 @@ li a:hover:not(.active) {
 
  });
 </script>
-<script src="http://localhost:5050/socket.io/socket.io.js"></script>
+<script src="http://192.168.1.107:5050/socket.io/socket.io.js"></script>
 <script>
   var url = 'http://192.168.1.107:5050' || 'http://localhost:5050'
-  var socket = io.connect('http://localhost:5050');
+  var socket = io.connect('http://192.168.1.107:5050');
   socket.on('stream', function(tweet){
       $('.tweet_block').append(tweet);
-      $('.tweet_block').append('\n ===================== \n');
+      $('.tweet_block').append('\n =====================\n');
   });
 </script>
