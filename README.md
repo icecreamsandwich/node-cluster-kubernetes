@@ -1,5 +1,10 @@
 # node-cluster-kubernetes
-communication between three node applications deployed on docker
+communication between three node applications deployed on docker or even the orchestration of those containers on pods using kubernetes
+
+# Kubernetes deploy
+ To deploy the containers over kubernetes use the `docker-composer.yml` as the deployment file and 
+ `docker-service.yml` as the service file
+ 
 # start all apps
 To start all the apps at once run `. start_all_apps.sh`
 # prettify all code
