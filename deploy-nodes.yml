@@ -1,0 +1,65 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: master-deploy
+spec:
+  selector:
+    matchLabels:
+      app: master-deploy
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: master-deploy
+    spec:
+      containers:
+      - name: master-deploy
+        image: 192.168.1.220:5000/node_master
+        env:
+        - name: NODE_SLAVE
+          value: http://slave-service:5002
+        - name: NODE_SLAVE2
+          value: http://slave2-service:5003
+        ports:
+        - containerPort: 5001
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: slave-deploy
+spec:
+  selector:
+    matchLabels:
+      app: slave-deploy
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: slave-deploy
+    spec:
+      containers:
+      - name: slave-deploy
+        image: 192.168.1.220:5000/node_slave
+        ports:
+        - containerPort: 5002
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: slave2-deploy
+spec:
+  selector:
+    matchLabels:
+      app: slave2-deploy
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: slave2-deploy
+    spec:
+      containers:
+      - name: slave2-deploy
+        image: 192.168.1.220:5000/node_slave2
+        ports:
+        - containerPort: 5003
+

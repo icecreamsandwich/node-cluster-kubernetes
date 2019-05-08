@@ -9,24 +9,24 @@ var favicon = require('serve-favicon');
 var port = 5050;
 //listen the server
 
-server.listen(port, function(){
-    console.log(`server is listening in port ${port}`)
-})
+server.listen(port, function() {
+  console.log(`server is listening in port ${port}`);
+});
 
-app.use(favicon(__dirname + '/public/images/logo.png'))
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html')
-})
+app.use(favicon(__dirname + '/public/images/logo.png'));
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
-var watchList = ['coding', '#coding','php', 'python', 'node', 'javascript'];
+var watchList = ['coding', '#coding', 'php', 'python', 'node', 'javascript'];
 //var watchList = ['php', 'python', 'node', 'javascript', 'coding', '#coding'];
 
 var T = new Twit({
-    consumer_key:'SV7QoHPW0dtfjw6TCI885yf31',
-    consumer_secret : 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
-    access_token : '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
-    access_token_secret : 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
-})
+  consumer_key: 'SV7QoHPW0dtfjw6TCI885yf31',
+  consumer_secret: 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
+  access_token: '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
+  access_token_secret: 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
+});
 /* //update a status
 T.post('statuses/update', {status : 'Hello twitter from socket'}, function(err, data, response){
     console.log('status posted');
@@ -41,12 +41,15 @@ T.get('followers/ids', {screen_name : 'muneebkt'}, function(err, data, response)
     console.log(data)
 }) */
 
-var stream = T.stream('statuses/filter',{track: watchList, language: 'en'});
-stream.on('tweet', function(data){
-    io.sockets.emit('stream', 
-    data.created_at+"\n"+data.text)
-}) //data.id+"\n"+
+var stream = T.stream('statuses/filter', { track: watchList, language: 'en' });
+stream.on('tweet', function(data) {
+  io.sockets.emit('stream', data.created_at + '\n' + data.text);
+}); //data.id+"\n"+
 //socket io connection
-io.sockets.on('connection', function(socket){
-    console.log('socket is open')
-})
+io.sockets.on('connection', function(socket) {
+  console.log('socket is open');
+  socket.on('send message', function(data) {
+    console.log(data);
+    io.sockets.emit('new message', { msg: data });
+  });
+});

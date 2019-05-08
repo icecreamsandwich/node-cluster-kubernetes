@@ -11,3 +11,6 @@ cd ../node_slave; npm run prettier;
 # cd to the node_slave2 and prettify it
 cd ../node_slave2; npm run prettier;
 
+# cd to the twitter-stream-socket and prettify it
+cd ../twitter-stream-socket; npm run prettier;
+

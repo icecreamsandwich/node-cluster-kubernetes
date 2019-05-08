@@ -40,8 +40,8 @@ app.get('/socket_call', function(req, res) {
 });
 
 //Bootstrap page
-app.get('/bootstrap', function(req, res) {
-  res.sendFile(path.join(__dirname + '/views/bootstrap.html'));
+app.get('/chat', function(req, res) {
+  res.sendFile(path.join(__dirname + '/views/chat.html'));
 });
 
 app.post('/home', function(req, res) {
@@ -266,29 +266,34 @@ app.post('/db/aggregate', function(req, res) {
 });
 
 //TODO call socket connection to get twitter stream
-app.post('/socket_twitter', function(req, res){
+app.post('/socket_twitter', function(req, res) {
   var T = new Twit({
     consumer_key: 'SV7QoHPW0dtfjw6TCI885yf31',
-    consumer_secret : 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
-    access_token : '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
-    access_token_secret : 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
- })
-
- try {
-  var trackList = [ 'javascript', 'php', 'mongo', 'python', '#coding', '#code' ]
-  var stream = T.stream('statuses/filter', {track : trackList});
-  stream.on('tweet',function(data){
-    console.log(data.text); 
-    res.send(data.text + + data.user.screen_name)
-     /*  sockets.emit('tweet',data.user.profile_image_url + "," 
-    + data.created_at + "," + data.id + "," + data.text 
-    + ", @" + data.user.screen_name); */    
-    
+    consumer_secret: 'yvBPocsnR83alEPQiSEiwzgPhF4jiQPTfjxCR2J8zKMbu0rU0Q',
+    access_token: '73091059-kC7EzODlfSsGOI7LLGSaIAMi8dig3q57ZW6hpCaUg',
+    access_token_secret: 'D8dGZwLFGzgLK2YN4Lm2uMlj6FcmXDCSfa3QPBi9qF9xp'
   });
- } catch (error) {
-   console.log(error)
- }
-   
+
+  try {
+    var trackList = [
+      'javascript',
+      'php',
+      'mongo',
+      'python',
+      '#coding',
+      '#code'
+    ];
+    var stream = T.stream('statuses/filter', { track: trackList });
+    stream.on('tweet', function(data) {
+      console.log(data.text);
+      res.send(data.text + +data.user.screen_name);
+      /*  sockets.emit('tweet',data.user.profile_image_url + "," 
+    + data.created_at + "," + data.id + "," + data.text 
+    + ", @" + data.user.screen_name); */
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //socket io
