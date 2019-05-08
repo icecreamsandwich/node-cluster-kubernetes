@@ -1,5 +1,17 @@
 # node-cluster-kubernetes
-communication between three node applications deployed on docker
+communication between three node applications deployed on docker or even the orchestration of those containers on pods using kubernetes
+
+# docker swarm deploy
+ To deploy the containers over docker-swarm use the 
+ 
+ `docker stack deploy -c docker-compose.yml swarmName`
+ 
+# kubernetes deploy
+To deploy the containers over pods of kubernetes use
+
+ 1) `kubectl apply -f deploy-nodes.yml`
+ 2) `kubectl apply -f service-nodes.yml`
+ 
 # start all apps
 To start all the apps at once run `. start_all_apps.sh`
 # prettify all code
@@ -12,7 +24,7 @@ cd to each app (<b>`node_master, node_slave, node_slave2`</b>) directory and run
 
 `docker run -p 5001:5001 -d <tagname>` for node_master.(Give 5002 for node_slave and 5003 for node_slave2)
 
-run `docker inspect bridge` and replace the <server_url> given in the host part of the `node_master/index.js` of each endpoints.
+After dockerizing the apps run `docker inspect bridge` and replace the <server_url> given in the host part of the `node_master/index.js` of each endpoints.
 
  (eg: `var host = 'http://<server_url>:5003';`) or in the `.env` file.
 
