@@ -17,19 +17,36 @@
     <script src="http://192.168.1.107:5050/socket.io/socket.io.js"></script>
 </head>
 <style>
-  body{
-      margin-top: 30px;
-  }
+    body {
+        margin-top: 30px;
+    }
+
+    #messageArea {
+        display: none;
+    }
 </style>
+
 <body>
     <div class="container">
-        <div class="row">
+        <div id="userArea" class="row">
+            <div class="col-md-12">
+                <form id="userForm">
+                    <div class="form-group">
+                        <label>Enter username</label>
+                        <input class="form-control" id="username" />
+                        <br />
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="messageArea" class="row">
             <div class="col-md-4">
                 <div class="well">
-                        <h2> Online users</h2>
-                        <ul class="list-group" id="users"></ul>
+                    <h2> Online users</h2>
+                    <ul class="list-group" id="users"></ul>
                 </div>
-                
+
             </div>
             <div class="col-md-8">
                 <div class="chat" id="chat"></div>
@@ -48,29 +65,59 @@
 </body>
 
 </html>
-<script> 
-var socket = io.connect('http://192.168.1.107:5050');
-$(function(){
-    var messageForm = $('#messageForm');
-    var message = $('#message');
-    var chat = $('#chat');
+<script>
+    var socket = io.connect('http://192.168.1.107:5050');
+    $(function () {
+        var messageForm = $('#messageForm');
+        var messageArea = $('#messageArea');
+        var message = $('#message');
+        var chat = $('#chat');
 
-    messageForm.submit(function(e){
-        console.log("form submittted");
-        e.preventDefault();
-        socket.emit("send message", message.val())
-        message.val('');
-    });
-    message.keypress(function(e){
-        if(e.which== 13){
+        var userForm = $('#userForm');
+        var userArea = $('#userArea');
+        var username = $('#username');
+        var users = $('#users');
+
+        //message form submission
+        messageForm.submit(function (e) {
+            console.log("form submittted");
+            e.preventDefault();
             socket.emit("send message", message.val())
             message.val('');
-            return false;
-        }
-    });
+        });
+        //userform submission
+        userForm.submit(function (e) {
+            console.log("user form submittted");
+            socket.emit("new user", username.val(), function (data) {
+                if (data) {
+                    messageArea.show();
+                    userArea.hide();
+                }
+            })
+            username.val('');
+            e.preventDefault();
+        });
+        // Enter keypress handler
+        message.keypress(function (e) {
+            if (e.which == 13) {
+                socket.emit("send message", message.val())
+                message.val('');
+                return false;
+            }
+        });
+        //socket recieve on new message
+        socket.on("new message", function (data) {
+            chat.append('<div class="well"><strong>' + data.user + '</strong> :' + data.msg + '</div>')
+        })
+        //socket recieves new user
+        socket.on("get users", function (data) {
+            var users = $('#users');
+            var html = '';
+            for (i = 0; i < data.length; i++) {
+                html += '<li class="list-group-item">' + data[i] + '</li>'
+            }
+            users.html(html);
+        })
 
-    socket.on("new message", function(data){
-        chat.append('<div class="well">'+data.msg+'</div>')
     })
-})
 </script>

@@ -7,6 +7,8 @@ var io = require('socket.io').listen(server);
 var Twit = require('twit');
 var favicon = require('serve-favicon');
 var port = 5050;
+var users = [];
+var connections = [];
 //listen the server
 
 server.listen(port, function() {
@@ -47,9 +49,32 @@ stream.on('tweet', function(data) {
 }); //data.id+"\n"+
 //socket io connection
 io.sockets.on('connection', function(socket) {
+  connections.push(socket);
+  //socket disconnect action
+  socket.on('disconnect', function(data) {
+    users.splice(users.indexOf(socket.username), 1);
+    updateUsers();
+    connections.splice(connections.indexOf(socket), 1);
+    console.log('user disconnected');
+  });
+
   console.log('socket is open');
   socket.on('send message', function(data) {
     console.log(data);
-    io.sockets.emit('new message', { msg: data });
+    io.sockets.emit('new message', { msg: data, user: socket.username });
   });
+
+  //socket recieve on new user connection
+  socket.on('new user', function(data, cb) {
+    cb(true);
+    socket.username = data;
+    console.log(data);
+    users.push(socket.username);
+    updateUsers();
+    //io.sockets.emit('get users', users)
+  });
+
+  function updateUsers() {
+    io.sockets.emit('get users', users);
+  }
 });
